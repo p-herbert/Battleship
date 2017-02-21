@@ -1,8 +1,8 @@
 class Ship {
-  constructor(type, size) {
+  constructor(type, coords) {
     this.type = type;
-    this.hits = size;
-    this.coords = [];
+    this.hits = coords.length;
+    this.coords = coords;
   }
 }
 
