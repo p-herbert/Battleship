@@ -11,5 +11,8 @@
     "battleship"
   ],
   "author": "Peter Herbert (p-herbert)",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "prompt": "^1.0.0"
+  }
 }
