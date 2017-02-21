@@ -4,5 +4,9 @@ class Ship {
     this.hits = coords.length;
     this.coords = coords;
   }
+
+  isDestroyed() {
+    return this.hits === 0;
+  }
 }
 
