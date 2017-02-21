@@ -1,0 +1,7 @@
+# Files
+.DS_Store
+*.log
+
+# Folders
+node_modules
+
