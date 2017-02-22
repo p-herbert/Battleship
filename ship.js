@@ -12,5 +12,11 @@ class Ship {
   isDestroyed() {
     return this.hits === this.size();
   }
+
+  hit() {
+    if (!this.isDestroyed()) {
+      this.hits += 1;
+    }
+  }
 }
 
