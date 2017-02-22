@@ -22,5 +22,26 @@ class Ship {
   location() {
     return this.coords;
   }
+
+  print() {
+    const size = this.size();
+
+    function tag(string, type, hits) {
+      const places = [];
+
+      for (let i = 0; i < size; i++) {
+        if (hits > 0) {
+          places.push('X');
+          hits -= 1;
+        } else {
+          places.push('_');
+        }
+      }
+
+      return type + string.join('') + places.join(' ');
+    }
+
+    console.log(tag`${this.type}: ${this.hits}`);
+  }
 }
 
