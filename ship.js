@@ -1,12 +1,12 @@
 class Ship {
   constructor(type, coords) {
     this.type = type;
-    this.hits = coords.length;
+    this.hits = 0;
     this.coords = coords;
   }
 
   isDestroyed() {
-    return this.hits === 0;
+    return this.hits === this.coords.length;
   }
 }
 
