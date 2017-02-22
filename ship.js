@@ -5,8 +5,12 @@ class Ship {
     this.coords = coords;
   }
 
+  size() {
+    return this.coords.length;
+  }
+
   isDestroyed() {
-    return this.hits === this.coords.length;
+    return this.hits === this.size();
   }
 }
 
