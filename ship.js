@@ -18,5 +18,9 @@ class Ship {
       this.hits += 1;
     }
   }
+
+  location() {
+    return this.coords;
+  }
 }
 
