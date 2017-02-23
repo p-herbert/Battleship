@@ -16,6 +16,16 @@ class Board {
     return { x: row, y: col };
   }
 
+  static rowCoords(row, start, end) {
+    const coords = [];
+
+    for (let col = start; col <= end; col++) {
+      coords.push(`${row}${col}`);
+    }
+
+    return coords;
+  }
+
   get(coord) {
     coord = Board.xy(coord);
 
