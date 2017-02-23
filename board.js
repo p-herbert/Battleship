@@ -33,6 +33,10 @@ class Board {
     return coords;
   }
 
+  static sameCol(coordOne, coordTwo) {
+    return coordOne.toUpperCase().charAt(0) === coordTwo.toUpperCase().charAt(0);
+  }
+
   static colCoords(col, start, end) {
     const coords = [];
 
