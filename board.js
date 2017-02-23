@@ -3,7 +3,7 @@ class Board {
     this.board = [];
 
     for (let i = 0; i < 10; i++) {
-      this.board.push(['', '', '', '', '', '', '', '', '', '']);
+      this.board.push([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']);
     }
   }
 
@@ -29,7 +29,7 @@ class Board {
   }
 
   isEmpty(coord) {
-    return this.get(coord) === '';
+    return this.get(coord).trim().length === 0;
   }
 
   print() {
