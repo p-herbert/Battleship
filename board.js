@@ -15,5 +15,11 @@ class Board {
 
     return { x: row, y: col };
   }
+
+  get(coord) {
+    coord = Board.xy(coord);
+
+    return this.board[coord.x][coord.y];
+  }
 }
 
