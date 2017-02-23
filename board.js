@@ -31,5 +31,18 @@ class Board {
   isEmpty(coord) {
     return this.get(coord) === '';
   }
+
+  print() {
+    const lineBreak = '---------------------------------------------';
+    const header = '|   | A | B | C | D | E | F | G | H | I | J |';
+
+    function tag(string, i, row) {
+      return `| ${i} | ${row.join(' | ')} |\n${lineBreak}`;
+    }
+
+    console.log(`${lineBreak}\n${header}\n${lineBreak}`);
+
+    this.board.forEach((row, i) => console.log(tag`${i}${row}`));
+  }
 }
 
