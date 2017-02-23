@@ -28,6 +28,10 @@ class Ship {
     this.coords = coords;
   }
 
+  willFit(coords) {
+    return coords.length === this.size();
+  }
+
   print() {
     const size = this.size();
 
