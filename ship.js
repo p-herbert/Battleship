@@ -1,13 +1,13 @@
 class Ship {
   constructor(type, size) {
     this.type = type;
-    this.size = size;
+    this.maxSize = size;
     this.hits = 0;
     this.coords = null;
   }
 
   size() {
-    return this.size;
+    return this.maxSize;
   }
 
   isDestroyed() {
