@@ -6,5 +6,14 @@ class Board {
       this.board.push(['', '', '', '', '', '', '', '', '', '']);
     }
   }
+
+  static xy(coord) {
+    const xy = coord.split('');
+
+    const row = +xy[1];
+    const col = xy[0].toUpperCase().charCodeAt(0) - 'A'.charCodeAt(0);
+
+    return { x: row, y: col };
+  }
 }
 
