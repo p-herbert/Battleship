@@ -46,5 +46,9 @@ class Player {
 
     return false;
   }
+
+  mark(symbol, coord) {
+    this.tracking.set(symbol, coord);
+  }
 }
 
