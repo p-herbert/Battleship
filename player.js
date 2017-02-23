@@ -20,5 +20,17 @@ class Player {
     this.primary.fill('S', coords);
     this.ships.push(ship);
   }
+
+  allDestoyed() {
+    let allDestroyed = true;
+
+    this.each((ship) => {
+      if (!ship.isDestroyed()) {
+        allDestroyed = false;
+      }
+    });
+
+    return allDestroyed;
+  }
 }
 
