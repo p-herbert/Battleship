@@ -14,5 +14,11 @@ class Player {
       cb(this.ships[i]);
     }
   }
+
+  addShip(ship, coords) {
+    ship.setLocation(coords);
+    this.primary.fill('S', coords);
+    this.ships.push(ship);
+  }
 }
 
