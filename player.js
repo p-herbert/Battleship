@@ -38,6 +38,10 @@ class Player {
       this.each((ship) => {
         if (ship.getLocation().indexOf(coord) > -1) {
           ship.hit();
+
+          if (ship.isDestroyed()) {
+            console.log(`You sank my ${ship.name}!`);
+          }
         }
       });
 
