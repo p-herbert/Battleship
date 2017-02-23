@@ -63,6 +63,19 @@ class Board {
     return this.get(coord).trim().length === 0;
   }
 
+  allEmpty(coords) {
+    let allEmpty = true;
+
+    for (let i = 0; i < coords.length; i++) {
+      if (!this.isEmpty(coords[i])) {
+        allEmpty = false;
+        break;
+      }
+    }
+
+    return allEmpty;
+  }
+
   print() {
     const lineBreak = '---------------------------------------------';
     const header = '|   | A | B | C | D | E | F | G | H | I | J |';
@@ -82,3 +95,4 @@ class Board {
 }
 
 module.exports = Board;
+
