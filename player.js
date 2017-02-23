@@ -8,4 +8,11 @@ class Player {
     this.primary = new Board();
     this.tracking = new Board();
   }
+
+  each(cb) {
+    for (let i = 0; i < this.ships.length; i++) {
+      cb(this.ships[i]);
+    }
+  }
 }
+
