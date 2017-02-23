@@ -16,6 +16,10 @@ class Board {
     return { x: row, y: col };
   }
 
+  static sameRow(coordOne, coordTwo) {
+    return coordOne.toUpperCase().charAt(1) === coordTwo.toUpperCase().charAt(1);
+  }
+
   static rowCoords(row, start, end) {
     const coords = [];
 
