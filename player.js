@@ -32,5 +32,19 @@ class Player {
 
     return allDestroyed;
   }
+
+  isHit(coord) {
+    if (this.primary.get(coord) === 'S') {
+      this.each((ship) => {
+        if (ship.getLocation().indexOf(coord) > -1) {
+          ship.hit();
+        }
+      });
+
+      return true;
+    }
+
+    return false;
+  }
 }
 
