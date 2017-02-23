@@ -44,5 +44,9 @@ class Board {
 
     this.board.forEach((row, i) => console.log(tag`${i}${row}`));
   }
+
+  fill(symbol, coords) {
+    coords.forEach(coord => this.set(symbol, coord));
+  }
 }
 
