@@ -27,5 +27,9 @@ class Board {
 
     this.board[coord.x][coord.y] = symbol;
   }
+
+  isEmpty(coord) {
+    return this.get(coord) === '';
+  }
 }
 
