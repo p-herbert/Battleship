@@ -29,6 +29,16 @@ class Board {
     return coords;
   }
 
+  static colCoords(col, start, end) {
+    const coords = [];
+
+    for (let row = start; row <= end; row++) {
+      coords.push(`${col}${row}`);
+    }
+
+    return coords;
+  }
+
   get(coord) {
     coord = Board.xy(coord);
 
