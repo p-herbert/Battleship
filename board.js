@@ -19,8 +19,11 @@ class Board {
   static rowCoords(row, start, end) {
     const coords = [];
 
+    start = start.toUpperCase().charCodeAt(0);
+    end = end.toUpperCase().charCodeAt(0);
+
     for (let col = start; col <= end; col++) {
-      coords.push(`${row}${col}`);
+      coords.push(`${String.fromCharCode(col)}${row}`);
     }
 
     return coords;
