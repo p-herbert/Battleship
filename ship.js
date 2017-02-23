@@ -20,8 +20,12 @@ class Ship {
     }
   }
 
-  location() {
+  getLocation() {
     return this.coords;
+  }
+
+  setLocation(coords) {
+    this.coords = coords;
   }
 
   print() {
