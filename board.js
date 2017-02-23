@@ -21,5 +21,11 @@ class Board {
 
     return this.board[coord.x][coord.y];
   }
+
+  set(symbol, coord) {
+    coord = Board.xy(coord);
+
+    this.board[coord.x][coord.y] = symbol;
+  }
 }
 
