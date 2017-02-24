@@ -97,7 +97,7 @@ class BattleShip {
 
     prompt.get({
       name: 'coord',
-      description: `${player.name} select an empty space (Col[A-J]Row[0-9])`,
+      description: `You may fire when you are ready, ${player.name} (Col[A-J]Row[0-9])`,
       type: 'string',
       required: true,
       message: 'Invalid space!',
