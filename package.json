@@ -13,6 +13,7 @@
   "author": "Peter Herbert (p-herbert)",
   "license": "ISC",
   "dependencies": {
+    "clear": "0.0.1",
     "prompt": "^1.0.0"
   }
 }
