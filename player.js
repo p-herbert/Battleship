@@ -37,6 +37,8 @@ class Player {
     if (this.primary.get(coord) === 'S') {
       this.each((ship) => {
         if (ship.getLocation().indexOf(coord) > -1) {
+          console.log('HIT!');
+
           ship.hit();
 
           if (ship.isDestroyed()) {
