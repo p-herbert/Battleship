@@ -51,7 +51,7 @@ class BattleShip {
 
     prompt.get({
       name: 'coords',
-      description: `Place ${ship.type} (${ship.size()} spaces) on board (Col[A-J]Row[0-9] Col[A-J]Row[0-9])`,
+      description: `${player.name} place ${ship.type} (${ship.size()} spaces) on board (Col[A-J]Row[0-9] Col[A-J]Row[0-9])`,
       type: 'string',
       required: true,
       pattern: /[A-J]\d\s[A-J]\d/,
@@ -67,7 +67,7 @@ class BattleShip {
 
     prompt.get({
       name: 'ship',
-      description: `Select a ship (${ships.join(' ')})`,
+      description: `${player.name} select a ship (${ships.join(' ')})`,
       type: 'string',
       required: true,
       message: 'Please select a valid ship!',
@@ -93,7 +93,7 @@ class BattleShip {
 
     prompt.get({
       name: 'coord',
-      description: 'Select an empty space (Col[A-J]Row[0-9])',
+      description: `${player.name} select an empty space (Col[A-J]Row[0-9])`,
       type: 'string',
       required: true,
       pattern: /[A-J]\d/,
