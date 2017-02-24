@@ -168,3 +168,6 @@ class BattleShip {
   }
 }
 
+const game = new BattleShip();
+game.start();
+
