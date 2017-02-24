@@ -137,5 +137,28 @@ class BattleShip {
       }
     });
   }
+
+  start() {
+    prompt.get([{
+      name: 'one',
+      description: 'Enter a name for Player One',
+      type: 'string',
+      required: true },
+    {
+      name: 'two',
+      description: 'Enter a name for Player Two',
+      type: 'string',
+      required: true }],
+    (err, players) => {
+      this.setPlayerOne(players.one);
+      this.setPlayerTwo(players.two);
+
+      BattleShip.initPlayer(this.getPlayerOne(), () => {
+        BattleShip.initPlayer(this.getPlayerTwo(), () => {
+          this.turn();
+        });
+      });
+    });
+  }
 }
 
