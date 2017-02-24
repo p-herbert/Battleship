@@ -21,7 +21,7 @@ class Player {
     this.ships.push(ship);
   }
 
-  allDestoyed() {
+  allDestroyed() {
     let allDestroyed = true;
 
     this.each((ship) => {
