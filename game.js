@@ -1,7 +1,11 @@
 const prompt = require('prompt');
+const clear = require('clear');
 const Player = require('./player');
 const Board = require('./board');
 const Ship = require('./ship');
+
+prompt.message = '';
+prompt.delimiter = '';
 
 const shipSize = {
   Carrier: 5,
@@ -41,8 +45,6 @@ class BattleShip {
   }
 
   static setShip(player, ship, cb) {
-    player.primary.print();
-
     function valid(input) {
       const coords = convert(input);
 
@@ -64,6 +66,9 @@ class BattleShip {
 
   static initPlayer(player, cb, ships) {
     ships = ships || ['Carrier', 'Battleship', 'Cruiser', 'Submarine', 'Destroyer'];
+
+    clear();
+    player.primary.print();
 
     prompt.get({
       name: 'ship',
@@ -124,16 +129,16 @@ class BattleShip {
 
     BattleShip.move(currentPlayer, (coord) => {
       if (nextPlayer.isHit(coord)) {
-        console.log('HIT!');
         currentPlayer.tracking.set('X', coord);
       } else {
+        console.log('MISS!');
         currentPlayer.tracking.set('O', coord);
       }
 
       if (nextPlayer.allDestroyed()) {
         console.log(`Congrats ${currentPlayer.name}!`);
       } else {
-        this.turn(nextPlayer, currentPlayer);
+        setTimeout(() => { clear(); this.turn(nextPlayer, currentPlayer); }, 2000);
       }
     });
   }
@@ -155,6 +160,7 @@ class BattleShip {
 
       BattleShip.initPlayer(this.getPlayerOne(), () => {
         BattleShip.initPlayer(this.getPlayerTwo(), () => {
+          clear();
           this.turn();
         });
       });
