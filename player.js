@@ -40,7 +40,7 @@ class Player {
           ship.hit();
 
           if (ship.isDestroyed()) {
-            console.log(`You sank my ${ship.name}!`);
+            console.log(`You sank my ${ship.type}!`);
           }
         }
       });
