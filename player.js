@@ -50,6 +50,8 @@ class Player {
       return true;
     }
 
+    console.log('MISS!');
+
     return false;
   }
 

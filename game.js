@@ -129,7 +129,6 @@ class BattleShip {
       if (nextPlayer.isHit(coord)) {
         currentPlayer.tracking.set('X', coord);
       } else {
-        console.log('MISS!');
         currentPlayer.tracking.set('O', coord);
       }
 
