@@ -117,5 +117,25 @@ class BattleShip {
   setPlayerTwo(name) {
     this.playerTwo = new Player(name);
   }
+
+  turn(currentPlayer, nextPlayer) {
+    currentPlayer = currentPlayer || this.getPlayerOne();
+    nextPlayer = nextPlayer || this.getPlayerTwo();
+
+    BattleShip.move(currentPlayer, (coord) => {
+      if (nextPlayer.isHit(coord)) {
+        console.log('HIT!');
+        currentPlayer.tracking.set('X', coord);
+      } else {
+        currentPlayer.tracking.set('O', coord);
+      }
+
+      if (nextPlayer.allDestroyed()) {
+        console.log(`Congrats ${currentPlayer.name}!`);
+      } else {
+        this.turn(nextPlayer, currentPlayer);
+      }
+    });
+  }
 }
 
