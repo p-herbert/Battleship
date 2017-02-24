@@ -56,10 +56,9 @@ class BattleShip {
       description: `${player.name} place ${ship.type} (${ship.size()} spaces) on board (Col[A-J]Row[0-9] Col[A-J]Row[0-9])`,
       type: 'string',
       required: true,
-      pattern: /[A-J]\d\s[A-J]\d/,
       message: 'Invalid input or ship does not fit or space is already taken!',
       before: input => convert(input),
-      conform: input => valid(input) },
+      conform: input => /[A-J]\d\s[A-J]\d/.test(input) && valid(input) },
       (err, result) => { player.addShip(ship, result.coords); cb(); }
     );
   }
@@ -101,9 +100,8 @@ class BattleShip {
       description: `${player.name} select an empty space (Col[A-J]Row[0-9])`,
       type: 'string',
       required: true,
-      pattern: /[A-J]\d/,
       message: 'Invalid space!',
-      conform: coord => player.tracking.isEmpty(coord) },
+      conform: coord => /[A-J]\d/.test(coord) && player.tracking.isEmpty(coord) },
       (err, result) => cb(result.coord));
   }
 
