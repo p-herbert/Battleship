@@ -40,6 +40,28 @@ class BattleShip {
     this.playerTwo = null;
   }
 
+  static setShip(player, ship, cb) {
+    player.primary.print();
+
+    function valid(input) {
+      const coords = convert(input);
+
+      return coords !== null && ship.willFit(coords) && player.primary.allEmpty(coords);
+    }
+
+    prompt.get({
+      name: 'coords',
+      description: `Place ${ship.type} (${ship.size()} spaces) on board (Col[A-J]Row[0-9] Col[A-J]Row[0-9])`,
+      type: 'string',
+      required: true,
+      pattern: /[A-J]\d\s[A-J]\d/,
+      message: 'Invalid input or ship does not fit or space is already taken!',
+      before: input => convert(input),
+      conform: input => valid(input) },
+      (err, result) => { player.addShip(ship, result.coords); cb(); }
+    );
+  }
+
   getPlayerOne() {
     return this.playerOne;
   }
