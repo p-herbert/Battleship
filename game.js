@@ -62,6 +62,32 @@ class BattleShip {
     );
   }
 
+  static initPlayer(player, cb, ships) {
+    ships = ships || ['Carrier', 'Battleship', 'Cruiser', 'Submarine', 'Destroyer'];
+
+    prompt.get({
+      name: 'ship',
+      description: `Select a ship (${ships.join(' ')})`,
+      type: 'string',
+      required: true,
+      message: 'Please select a valid ship!',
+      conform: input => ships.indexOf(input) > -1 },
+      (err, result) => {
+        const ship = new Ship(result.ship, shipSize[result.ship]);
+        const index = ships.indexOf(result.ship);
+
+        BattleShip.setShip(player, ship, () => {
+          ships.splice(index, 1);
+
+          if (ships.length > 0) {
+            BattleShip.initPlayer(player, cb, ships);
+          } else {
+            cb();
+          }
+        });
+      });
+  }
+
   getPlayerOne() {
     return this.playerOne;
   }
