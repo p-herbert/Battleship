@@ -5,7 +5,7 @@ const Board = require('./board');
 const Ship = require('./ship');
 
 prompt.message = '';
-prompt.delimiter = '';
+prompt.delimiter = ' >';
 
 const shipSize = {
   Carrier: 5,
