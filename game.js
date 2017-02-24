@@ -88,6 +88,20 @@ class BattleShip {
       });
   }
 
+  static move(player, cb) {
+    player.tracking.print();
+
+    prompt.get({
+      name: 'coord',
+      description: 'Select an empty space (Col[A-J]Row[0-9])',
+      type: 'string',
+      required: true,
+      pattern: /[A-J]\d/,
+      message: 'Invalid space!',
+      conform: coord => player.tracking.isEmpty(coord) },
+      (err, result) => cb(result.coord));
+  }
+
   getPlayerOne() {
     return this.playerOne;
   }
